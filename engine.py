@@ -70,13 +70,12 @@ FEEDBACK_HEADERS = [
 ]
 
 TTS_VOICE_MAP: dict[str, str] = {
-    "kn": "kn-IN-VarunNeural",
-    "hi": "hi-IN-MadhurNeural",
+    "kn": "kn-IN-SapnaNeural",
+    "hi": "hi-IN-SwaraNeural",
     "en": "en-IN-NeerjaNeural",
 }
 TTS_FALLBACK_VOICE = "en-IN-NeerjaNeural"
 TTS_OUTPUT_PATH = "verify.mp3"
-
 # Sarvam TTS & Translate config
 SARVAM_TTS_URL = "https://api.sarvam.ai/text-to-speech"
 SARVAM_TRANSLATE_URL = "https://api.sarvam.ai/translate"
