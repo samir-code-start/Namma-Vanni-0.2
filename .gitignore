@@ -1,0 +1,26 @@
+# Environment & secrets
+.env
+.streamlit/secrets.toml
+
+# Runtime audio/output files
+*.wav
+*.mp3
+
+# Feedback data (contains citizen info — keep off repo)
+feedback.csv
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# OS noise
+.DS_Store
+Thumbs.db
