@@ -46,7 +46,7 @@ def translate_to_english(text: str) -> str:
 # ---------------------------------------------------------------------------
 MOCK_MODE: bool = os.getenv("MOCK_MODE", "False").lower() == "true"
 SARVAM_API_KEY: str = _get_secret("SARVAM_API_KEY")
-SARVAM_STT_URL = "https://api.sarvam.ai/speech-to-text-translate"
+SARVAM_STT_URL = "https://api.sarvam.ai/speech-to-text"
 GROQ_API_KEY: str = _get_secret("GROQ_API_KEY")
 LLM_MODEL = "llama-3.3-70b-versatile"
 GROQ_LLM_URL = "https://api.groq.com/openai/v1/chat/completions"
