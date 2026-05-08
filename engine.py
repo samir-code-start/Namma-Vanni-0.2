@@ -576,11 +576,14 @@ def process_audio(audio_path: str) -> dict:
     verification_prompt = ai_data.get("verification_prompt", "")
     citizen_lang = ai_data.get("language", "kn")
     tts_text = verification_prompt
-    
-    # Sarvam bulbul:v3 rejects English — always route to Kannada if citizen spoke English
-    tts_lang = citizen_lang if citizen_lang != "en" else "kn"
+
+    # For TTS: English speakers fall back to Kannada (Sarvam bulbul:v3 has no English support)
+    # For translation: use the citizen's actual language (kn or hi), not the TTS fallback
+    translate_target_lang = citizen_lang if citizen_lang in ("kn", "hi") else "kn"
+    tts_lang = translate_target_lang  # same: kn or hi (never en)
+
     if verification_prompt:
-        target_lang_code = SARVAM_TTS_LANG_MAP.get(tts_lang, "kn-IN")
+        target_lang_code = SARVAM_TTS_LANG_MAP.get(translate_target_lang, "kn-IN")
         translated_prompt = _sarvam_translate(verification_prompt, "en-IN", target_lang_code)
         ai_data["verification_prompt_translated"] = translated_prompt
         tts_text = translated_prompt
